@@ -10,6 +10,9 @@ Concluding that the site is doing wrong sometimes =]
 Service of Brazil's central bank used to compare the conversions:
 http://www4.bcb.gov.br/pec/conversao/conversao.asp
 
+The image below shows the digits rounded different.
+![roundederror](roundederror.png)
+
 -----------------------------------
 You should create the following function:
 
