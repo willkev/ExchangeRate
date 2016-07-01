@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: br.com.cwi.exchangerate.service.QuotationImplITTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.472 sec <<< FAILURE!
-testValues[Try convert value 88 from EUR to MXN for date 20160627](br.com.cwi.exchangerate.service.QuotationImplITTest)  Time elapsed: 0.089 sec  <<< FAILURE!
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.678 sec <<< FAILURE!
+testValues[Try convert value 88 from EUR to MXN for date 20160627](br.com.cwi.exchangerate.service.QuotationImplITTest)  Time elapsed: 0.117 sec  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<185[6.90]> but was:<185[7.84]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
@@ -44,7 +44,7 @@ org.junit.ComparisonFailure: expected:<185[6.90]> but was:<185[7.84]>
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testValues[Try convert value 100 from USD to EUR for date 20141120](br.com.cwi.exchangerate.service.QuotationImplITTest)  Time elapsed: 0.066 sec  <<< FAILURE!
+testValues[Try convert value 100 from USD to EUR for date 20141120](br.com.cwi.exchangerate.service.QuotationImplITTest)  Time elapsed: 0.127 sec  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<79.[69]> but was:<79.[71]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
