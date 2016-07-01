@@ -5,6 +5,7 @@ import br.com.cwi.exchangerate.model.Exception.ExchangeRateException;
 import br.com.cwi.exchangerate.model.Exception.NegativeValueException;
 import br.com.cwi.exchangerate.model.QuotationDaily;
 import br.com.cwi.exchangerate.model.QuotationDailyItem;
+import static br.com.cwi.exchangerate.model.QuotationDailyItem.CURRENCY_BRL;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
@@ -39,18 +40,34 @@ public class QuotationImpl implements Quotation {
         }
         QuotationDaily quotationDaily = brazilianCBDS.findQuotationByDate(quotation);
         QuotationDailyItem fromItem = quotationDaily.getQuotationDailyItem(from);
-        QuotationDailyItem toItem = quotationDaily.getQuotationDailyItem(to);
 
+        // BRL not exist em CSV and it should be treated differently
+        if (to.equals(CURRENCY_BRL)) {
+            return convertToReal(fromItem, valueToConvert);
+        }
+        QuotationDailyItem toItem = quotationDaily.getQuotationDailyItem(to);
         return convert(fromItem, toItem, valueToConvert);
+    }
+
+    private BigDecimal convertToReal(QuotationDailyItem fromItem, BigDecimal valueToConvert) {
+        BigDecimal fromBuyingRate = fromItem.getBuyingRate();
+        BigDecimal valueInReal = valueToConvert.multiply(fromBuyingRate, MathContext.DECIMAL128);
+        return valueInReal.divide(BigDecimal.ONE, roundDecimalDigits, BigDecimal.ROUND_HALF_UP);
     }
 
     private BigDecimal convert(QuotationDailyItem fromItem, QuotationDailyItem toItem, BigDecimal valueToConvert) {
         BigDecimal fromBuyingRate = fromItem.getBuyingRate();
+//        System.out.println(fromItem.getAbbreviationName() + " " + fromBuyingRate);
+
         BigDecimal toBuyingRate = toItem.getBuyingRate();
+//        System.out.println(toItem.getAbbreviationName() + " " + toBuyingRate);
 
         BigDecimal valueInReal = valueToConvert.multiply(fromBuyingRate, MathContext.DECIMAL128);
+//        System.out.println(valueInReal);
 
-        return valueInReal.divide(toBuyingRate, roundDecimalDigits, BigDecimal.ROUND_HALF_UP);
+        BigDecimal divide = valueInReal.divide(toBuyingRate, roundDecimalDigits, BigDecimal.ROUND_HALF_UP);
+//        System.out.println(divide);
+        return divide;
     }
 
 }

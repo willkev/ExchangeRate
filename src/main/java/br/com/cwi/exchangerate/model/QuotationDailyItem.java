@@ -19,6 +19,9 @@ public class QuotationDailyItem {
      - Para obter o valor em R$ (reais), multiplique o montante na moeda consultada pela respectiva taxa. 
      */
 
+    // Because (BRL) Brazil's currency never comes within the CSV file 
+    public static final String CURRENCY_BRL = "BRL";
+    
     public enum Type {
 
         A,

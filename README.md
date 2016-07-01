@@ -1,7 +1,16 @@
 # ExchangeRate
 Currency conversion using the dentral Bank Brazil database
 
+In class QuotationImplITTest are tested one set of values and their respective expected values,
+but some decimal places, sometimes, are not exactly like the calculation of Brazil's central bank.
 
+Important! Even calculating "by hand", some values calculated by Brazil's central bank are different.
+Concluding that the site is doing wrong sometimes =]
+
+Service of Brazil's central bank used to compare the conversions:
+http://www4.bcb.gov.br/pec/conversao/conversao.asp
+
+-----------------------------------
 You should create the following function:
 
 public BigDecimal currencyQuotation(String from, String to, Number value, String quotation);

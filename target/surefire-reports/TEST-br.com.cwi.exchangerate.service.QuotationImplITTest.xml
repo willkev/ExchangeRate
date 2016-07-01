@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="2" name="br.com.cwi.exchangerate.service.QuotationImplITTest" time="0.56" errors="0" skipped="0">
+<testsuite tests="6" failures="2" name="br.com.cwi.exchangerate.service.QuotationImplITTest" time="0.473" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_11\jre\bin"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\will\ExchangeRate"/>
+    <property name="user.dir" value="C:\will\exchangerate"/>
     <property name="java.runtime.version" value="1.8.0_11-b12"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_11\jre\lib\endorsed"/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_11\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Users\Willian\AppData\Roaming\NetBeans\8.0\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Users\Willian\AppData\Roaming\NetBeans\8.0\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,11 +61,13 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 77 from EUR to MXN for date 20160627]" time="0.091">
-    <failure message="expected:&lt;162[4.78]&gt; but was:&lt;162[5.61]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;162[4.78]&gt; but was:&lt;162[5.61]&gt;
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 77 from EUR to BRL for date 20160627]" time="0.096"/>
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 77 from CVE to BRL for date 20160627]" time="0.093"/>
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 88 from EUR to MXN for date 20160627]" time="0.089">
+    <failure message="expected:&lt;185[6.90]&gt; but was:&lt;185[7.84]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;185[6.90]&gt; but was:&lt;185[7.84]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
-	at br.com.cwi.exchangerate.service.QuotationImplITTest.testValues(QuotationImplITTest.java:50)
+	at br.com.cwi.exchangerate.service.QuotationImplITTest.testValues(QuotationImplITTest.java:51)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -108,11 +110,12 @@
 Acessing... http://www4.bcb.gov.br/Download/fechamento/20160627.csv
 </system-out>
   </testcase>
-  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 100 from USD to EUR for date 20141120]" time="0.055">
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 32 from GBP to BRL for date 20160627]" time="0.07"/>
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 100 from USD to EUR for date 20141120]" time="0.066">
     <failure message="expected:&lt;79.[69]&gt; but was:&lt;79.[71]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;79.[69]&gt; but was:&lt;79.[71]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
-	at br.com.cwi.exchangerate.service.QuotationImplITTest.testValues(QuotationImplITTest.java:50)
+	at br.com.cwi.exchangerate.service.QuotationImplITTest.testValues(QuotationImplITTest.java:51)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -155,5 +158,5 @@ Acessing... http://www4.bcb.gov.br/Download/fechamento/20160627.csv
 Acessing... http://www4.bcb.gov.br/Download/fechamento/20141120.csv
 </system-out>
   </testcase>
-  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 100 from EUR to USD for date 20141120]" time="0.413"/>
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 100 from EUR to USD for date 20141120]" time="0.056"/>
 </testsuite>
