@@ -18,12 +18,16 @@ import static java.time.DayOfWeek.SATURDAY;
 import static java.time.DayOfWeek.SUNDAY;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Willian Kirschner (willkev@gmail.com)
  */
 public class BrazilianCentralBankDataSource {
+
+    private static final Logger LOG = Logger.getLogger(BrazilianCentralBankDataSource.class.getName());
 
     /**
      * URL template to acessing CVS files from Brasilian Central Bank
@@ -48,6 +52,8 @@ public class BrazilianCentralBankDataSource {
 
     public QuotationDaily findQuotationByDate(String quotationDate) throws ExchangeRateException {
         LocalDate businessDay = getBusinessDay(quotationDate);
+        LOG.log(Level.INFO, "Date requested: {0}", businessDay.toString());
+
         return createQuotationDaily(businessDay);
     }
 
@@ -96,7 +102,7 @@ public class BrazilianCentralBankDataSource {
     private InputStream downloadCSVContentFileForDate(LocalDate date) throws ExchangeRateException {
         String urlToDownload = generateURLForDate(date);
 
-        System.out.println("Requested: " + urlToDownload);
+        LOG.log(Level.INFO, "Requested: {0}", urlToDownload);
         HttpURLConnection httpCon = null;
         try {
             httpCon = (HttpURLConnection) new URL(urlToDownload).openConnection();
@@ -112,7 +118,7 @@ public class BrazilianCentralBankDataSource {
             if (respondeCode != HttpURLConnection.HTTP_OK) {
                 throw new ExchangeRateException("Response code: " + respondeCode + "; From: " + urlToDownload);
             }
-            System.out.println("Acessing... " + urlToDownload);
+            LOG.log(Level.INFO, "Acessing... {0}", urlToDownload);
             return httpCon.getInputStream();
         } catch (IOException ex) {
             // To ensure that it will terminate the connection failed!

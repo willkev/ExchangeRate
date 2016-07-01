@@ -4,7 +4,6 @@ import br.com.cwi.exchangerate.model.Exception.ExchangeRateException;
 import br.com.cwi.exchangerate.model.Exception.QuotationDateNotFound;
 import br.com.cwi.exchangerate.model.Exception.QuotationDateTimeParseException;
 import br.com.cwi.exchangerate.model.QuotationDaily;
-import java.io.File;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,12 +12,7 @@ import org.junit.Test;
  */
 public class BrazilianCentralBankDataSourceTest {
 
-    private static final int FILE_BUFFER = 4096;
-
-    private final File dirTest;
-
     public BrazilianCentralBankDataSourceTest() {
-        dirTest = new File(System.getProperty("java.io.tmpdir"), "");
     }
 
     @Test()

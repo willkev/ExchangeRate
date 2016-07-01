@@ -8,6 +8,8 @@ import br.com.cwi.exchangerate.model.QuotationDailyItem;
 import static br.com.cwi.exchangerate.model.QuotationDailyItem.CURRENCY_BRL;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,6 +18,8 @@ import java.math.MathContext;
  * @author Willian Kirschner (willkev@gmail.com)
  */
 public class QuotationImpl implements Quotation {
+
+    private static final Logger LOG = Logger.getLogger(QuotationImpl.class.getName());
 
     /**
      * The return value should be rounded to two decimal places
@@ -51,16 +55,19 @@ public class QuotationImpl implements Quotation {
 
     private BigDecimal convertToReal(QuotationDailyItem fromItem, BigDecimal valueToConvert) {
         BigDecimal fromBuyingRate = fromItem.getBuyingRate();
+        LOG.log(Level.INFO, "From: {0} - {1} - {2}", new Object[]{fromItem.getCode(), fromItem.getAbbreviationName(), fromBuyingRate});
+        LOG.info("To: 790 - BRL");
+        
         BigDecimal valueInReal = valueToConvert.multiply(fromBuyingRate, MathContext.DECIMAL128);
         return valueInReal.divide(BigDecimal.ONE, roundDecimalDigits, BigDecimal.ROUND_HALF_UP);
     }
 
     private BigDecimal convert(QuotationDailyItem fromItem, QuotationDailyItem toItem, BigDecimal valueToConvert) {
         BigDecimal fromBuyingRate = fromItem.getBuyingRate();
-//        System.out.println(fromItem.getAbbreviationName() + " " + fromBuyingRate);
+        LOG.log(Level.INFO, "From: {0} - {1} - {2}", new Object[]{fromItem.getCode(), fromItem.getAbbreviationName(), fromBuyingRate});
 
         BigDecimal toBuyingRate = toItem.getBuyingRate();
-//        System.out.println(toItem.getAbbreviationName() + " " + toBuyingRate);
+        LOG.log(Level.INFO, "To: {0} - {1} - {2}", new Object[]{toItem.getCode(), toItem.getAbbreviationName(), toBuyingRate});
 
         BigDecimal valueInReal = valueToConvert.multiply(fromBuyingRate, MathContext.DECIMAL128);
 //        System.out.println(valueInReal);

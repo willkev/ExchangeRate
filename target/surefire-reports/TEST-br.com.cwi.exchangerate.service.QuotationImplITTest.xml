@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="2" name="br.com.cwi.exchangerate.service.QuotationImplITTest" time="0.679" errors="0" skipped="0">
+<testsuite tests="6" failures="2" name="br.com.cwi.exchangerate.service.QuotationImplITTest" time="0.422" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_11\jre\bin"/>
@@ -61,9 +61,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 77 from EUR to BRL for date 20160627]" time="0.083"/>
-  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 77 from CVE to BRL for date 20160627]" time="0.068"/>
-  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 88 from EUR to MXN for date 20160627]" time="0.117">
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 77 from EUR to BRL for date 20160627]" time="0.056"/>
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 77 from CVE to BRL for date 20160627]" time="0.066"/>
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 88 from EUR to MXN for date 20160627]" time="0.072">
     <failure message="expected:&lt;185[6.90]&gt; but was:&lt;185[7.84]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;185[6.90]&gt; but was:&lt;185[7.84]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
@@ -106,12 +106,20 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </failure>
-    <system-out>Requested: http://www4.bcb.gov.br/Download/fechamento/20160627.csv
-Acessing... http://www4.bcb.gov.br/Download/fechamento/20160627.csv
-</system-out>
+    <system-err>jun 30, 2016 9:52:26 PM br.com.cwi.exchangerate.datasource.BrazilianCentralBankDataSource findQuotationByDate
+INFORMAÇÕES: Date requested: 2016-06-27
+jun 30, 2016 9:52:26 PM br.com.cwi.exchangerate.datasource.BrazilianCentralBankDataSource downloadCSVContentFileForDate
+INFORMAÇÕES: Requested: http://www4.bcb.gov.br/Download/fechamento/20160627.csv
+jun 30, 2016 9:52:26 PM br.com.cwi.exchangerate.datasource.BrazilianCentralBankDataSource downloadCSVContentFileForDate
+INFORMAÇÕES: Acessing... http://www4.bcb.gov.br/Download/fechamento/20160627.csv
+jun 30, 2016 9:52:26 PM br.com.cwi.exchangerate.service.QuotationImpl convert
+INFORMAÇÕES: From: 978 - EUR - 3,739
+jun 30, 2016 9:52:26 PM br.com.cwi.exchangerate.service.QuotationImpl convert
+INFORMAÇÕES: To: 741 - MXN - 0,177
+</system-err>
   </testcase>
-  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 32 from GBP to BRL for date 20160627]" time="0.11"/>
-  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 100 from USD to EUR for date 20141120]" time="0.127">
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 32 from GBP to BRL for date 20160627]" time="0.064"/>
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 100 from USD to EUR for date 20141120]" time="0.073">
     <failure message="expected:&lt;79.[69]&gt; but was:&lt;79.[71]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;79.[69]&gt; but was:&lt;79.[71]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
@@ -154,9 +162,17 @@ Acessing... http://www4.bcb.gov.br/Download/fechamento/20160627.csv
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </failure>
-    <system-out>Requested: http://www4.bcb.gov.br/Download/fechamento/20141120.csv
-Acessing... http://www4.bcb.gov.br/Download/fechamento/20141120.csv
-</system-out>
+    <system-err>jun 30, 2016 9:52:26 PM br.com.cwi.exchangerate.datasource.BrazilianCentralBankDataSource findQuotationByDate
+INFORMAÇÕES: Date requested: 2014-11-20
+jun 30, 2016 9:52:26 PM br.com.cwi.exchangerate.datasource.BrazilianCentralBankDataSource downloadCSVContentFileForDate
+INFORMAÇÕES: Requested: http://www4.bcb.gov.br/Download/fechamento/20141120.csv
+jun 30, 2016 9:52:26 PM br.com.cwi.exchangerate.datasource.BrazilianCentralBankDataSource downloadCSVContentFileForDate
+INFORMAÇÕES: Acessing... http://www4.bcb.gov.br/Download/fechamento/20141120.csv
+jun 30, 2016 9:52:26 PM br.com.cwi.exchangerate.service.QuotationImpl convert
+INFORMAÇÕES: From: 220 - USD - 2,544
+jun 30, 2016 9:52:26 PM br.com.cwi.exchangerate.service.QuotationImpl convert
+INFORMAÇÕES: To: 978 - EUR - 3,192
+</system-err>
   </testcase>
-  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 100 from EUR to USD for date 20141120]" time="0.169"/>
+  <testcase classname="br.com.cwi.exchangerate.service.QuotationImplITTest" name="testValues[Try convert value 100 from EUR to USD for date 20141120]" time="0.088"/>
 </testsuite>

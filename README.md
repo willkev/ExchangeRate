@@ -1,6 +1,8 @@
 # ExchangeRate
 Currency conversion using the dentral Bank Brazil database
 
+Requirements to run: JRE 1.8+
+
 In class QuotationImplITTest are tested one set of values and their respective expected values,
 but some decimal places, sometimes, are not exactly like the calculation of Brazil's central bank.
 
